@@ -47,10 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MyProgram.cs" />
+    <Compile Include="NumberCalculator.cs" />
     <Compile Include="NumberCondition.cs" />
+    <Compile Include="DefinitionHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RomanNumber.cs" />
+    <Compile Include="ThingCreditsCalculator.cs" />
+    <Compile Include="ThingPriceCalculator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
