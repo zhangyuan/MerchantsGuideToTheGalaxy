@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace test
+namespace Galaxy
 {
     public class RomanNumber
     {
