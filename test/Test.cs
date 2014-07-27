@@ -36,10 +36,12 @@ namespace test
             Assert.Equal("pish tegj glob glob is 42", progam.GetOutputText());
         }
 
-        [Fact(Skip = "not implement")]
-        public void should_calculate_total_price_of_intergalactic_goods()
+        [Fact]
+        public void should_calculate_total_price_of_intergalactic_things()
         {
-            
+            var progam = new MyProgram();
+            progam.AddInput("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\nglob glob Silver is 34 Credits\r\nhow many Credits is glob prok Silver ?");
+            Assert.Equal("glob prok Silver is 68 Credits", progam.GetOutputText());
         }
 
         [Fact(Skip = "not implement")]
