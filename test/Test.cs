@@ -12,12 +12,12 @@ namespace test
             Assert.Equal("glob is 1", progam.GetOutputText());
         }
 
-        [Fact(Skip="not implement")]
-        public void should_calculate_intergalactic_numbers()
+        [Fact]
+        public void should_calculate_intergalactic_numbers_from_large_to_small()
         {
             var progam = new MyProgram();
             progam.AddInput("glob is I\r\nprok is V\r\nhow much is prok glob ?");
-            Assert.Equal("glob is 6", progam.GetOutputText());
+            Assert.Equal("prok glob is 6", progam.GetOutputText());
         }
 
         [Fact(Skip = "not implement")]

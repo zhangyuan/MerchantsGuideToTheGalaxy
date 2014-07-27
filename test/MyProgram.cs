@@ -51,15 +51,21 @@ namespace test
                     continue;
                 }
 
-                match = Regex.Match(line, @"how much is (\w+) ?");
+                match = Regex.Match(line, @"how much is(( \w+)+) ?");
 
                 if (match.Success)
                 {
-                    var value = match.Groups[1].Value.Trim();
+                    var values = match.Groups[1].Value.Trim().Split(' ');
+                    var total = 0;
 
-                    var condition = inputs.FirstOrDefault(input => input.IntergalacticNumber == value);
+                    foreach (var value in values)
+                    {
+                        var condition = inputs.FirstOrDefault(input => input.IntergalacticNumber == value);
+                        total += (int) condition.Value;
+                    }
 
-                    outputs.Add(string.Format("{0} is {1}", value, (int)condition.Value));
+
+                    outputs.Add(string.Format("{0} is {1}", string.Join(" ", values), total));
                     continue;
                 }
             }
