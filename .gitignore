@@ -16,3 +16,6 @@ obj/
 .idea/
 
 packages/*
+
+
+*.sln.DotSettings.user

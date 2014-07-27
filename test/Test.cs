@@ -44,10 +44,12 @@ namespace test
             Assert.Equal("glob prok Silver is 68 Credits", progam.GetOutputText());
         }
 
-        [Fact(Skip = "not implement")]
-        public void should_return_error_message_with_invalid_question()
+        [Fact]
+        public void should_return_error_message_with_unidentified_input()
         {
-            
+            var progam = new MyProgram();
+            progam.AddInput("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\nhow much wood could a woodchuck chuck if a woodchuck could chuck wood ?");
+            Assert.Equal("I have no idea what you are talking about", progam.GetOutputText());
         }
     }
 }
