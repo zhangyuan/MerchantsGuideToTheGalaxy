@@ -9,6 +9,7 @@ namespace Galaxy
         private readonly List<string> outputs;
         private readonly Dictionary<string, decimal> things;
         private readonly List<IInputLineHandler> handlers;
+        private string input;
 
         public MyProgram()
         {
@@ -30,17 +31,22 @@ namespace Galaxy
             return string.Join("\r\n", outputs);
         }
 
-        public void AddInput(string text)
+        public void LoadText(string text)
+        {
+            input = text;
+        }
+
+        public void Run(string text)
         {
             var lines = text.Split(new[] {'\r', '\n'});
-            
+
             foreach (var line in lines)
             {
                 if (string.IsNullOrEmpty(line))
                 {
                     continue;
                 }
-                
+
                 var handler = handlers.FirstOrDefault(h => h.Apply(line));
 
                 if (handler != null)
