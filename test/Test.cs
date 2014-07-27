@@ -37,11 +37,27 @@ namespace test
         }
 
         [Fact]
-        public void should_calculate_total_price_of_intergalactic_things()
+        public void should_calculate_total_price_of_intergalactic_things_of_Silver()
         {
             var progam = new MyProgram();
             progam.AddInput("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\nglob glob Silver is 34 Credits\r\nhow many Credits is glob prok Silver ?");
             Assert.Equal("glob prok Silver is 68 Credits", progam.GetOutputText());
+        }
+
+        [Fact]
+        public void should_calculate_total_price_of_intergalactic_things_of_Gold()
+        {
+            var progam = new MyProgram();
+            progam.AddInput("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\nglob prok Gold is 57800 Credits\r\nhow many Credits is glob prok Gold ?");
+            Assert.Equal("glob prok Gold is 57800 Credits", progam.GetOutputText());
+        }
+
+        [Fact]
+        public void should_calculate_total_price_of_intergalactic_things_of_Iron()
+        {
+            var progam = new MyProgram();
+            progam.AddInput("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\npish pish Iron is 3910 Credits\r\nhow many Credits is glob prok Iron ?");
+            Assert.Equal("glob prok Iron is 782 Credits", progam.GetOutputText());
         }
 
         [Fact]

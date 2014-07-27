@@ -9,13 +9,13 @@ namespace test
     {
         private List<NumberCondition> inputs;
         private List<string> outputs;
-        private Dictionary<string, long> things;
+        private Dictionary<string, decimal> things;
 
         public MyProgram()
         {
             inputs = new List<NumberCondition>();
             outputs = new List<string>();
-            things = new Dictionary<string, long>();
+            things = new Dictionary<string, decimal>();
         }
 
         public List<NumberCondition>  GetInputs()
@@ -61,7 +61,8 @@ namespace test
                     var thingName = match.Groups[3].Value;
                     var price = things[thingName];
                     var total = price*quantity;
-                    outputs.Add(string.Format("{0} {1} is {2} Credits", intergalacticNumbers, thingName, total));
+                    
+                    outputs.Add(string.Format("{0} {1} is {2:0.#} Credits", intergalacticNumbers, thingName, total));
                     continue;
                 }
 
@@ -81,7 +82,7 @@ namespace test
                     var intergalacticNumbers = match.Groups[1].Value;
                     var quantity = GetintergalacticNumbersValue(intergalacticNumbers);
 
-                    var price = int.Parse(match.Groups[4].Value)/quantity;
+                    var price = decimal.Parse(match.Groups[4].Value) / quantity;
                     things.Add(match.Groups[3].Value, price);
                     continue;
                 }
