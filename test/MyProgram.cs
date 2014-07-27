@@ -56,19 +56,37 @@ namespace test
                 if (match.Success)
                 {
                     var values = match.Groups[1].Value.Trim().Split(' ');
-                    var total = 0;
+                    long total = 0;
 
-                    foreach (var value in values)
+                    var valuesCount = values.Length;
+
+                    var current = 0;
+                    while (current < valuesCount)
                     {
-                        var condition = inputs.FirstOrDefault(input => input.IntergalacticNumber == value);
-                        total += (int) condition.Value;
+                        var currentValue = IntergalacticNumberValue(values[current]);
+                        if ((current < valuesCount -1))
+                        {
+                            var nextValue = IntergalacticNumberValue(values[current + 1]);
+                            if (currentValue < nextValue)
+                            {
+                                total += (nextValue - currentValue);
+                                current += 2;
+                                continue;
+                            }
+                        }
+                        current++;
+                        total += currentValue;
                     }
-
-
                     outputs.Add(string.Format("{0} is {1}", string.Join(" ", values), total));
                     continue;
                 }
             }
+        }
+
+        private long IntergalacticNumberValue(string value)
+        {
+            var condition = inputs.FirstOrDefault(input => input.IntergalacticNumber == value);
+            return (long) condition.Value;
         }
     }
 }
