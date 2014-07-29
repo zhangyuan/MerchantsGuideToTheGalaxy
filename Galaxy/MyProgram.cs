@@ -36,9 +36,9 @@ namespace Galaxy
             input = text;
         }
 
-        public void Run(string text)
+        public void Run()
         {
-            var lines = text.Split(new[] {'\r', '\n'});
+            var lines = input.Split(new[] {'\r', '\n'});
 
             foreach (var line in lines)
             {

@@ -10,7 +10,7 @@ namespace test
         {
             var progam = new MyProgram();
             progam.LoadText("glob is I\r\nhow much is glob ?");
-            progam.Run("glob is I\r\nhow much is glob ?");
+            progam.Run();
             Assert.Equal("glob is 1", progam.GetOutputText());
         }
 
@@ -19,7 +19,7 @@ namespace test
         {
             var progam = new MyProgram();
             progam.LoadText("glob is I\r\nprok is V\r\nhow much is prok glob ?");
-            progam.Run("glob is I\r\nprok is V\r\nhow much is prok glob ?");
+            progam.Run();
             Assert.Equal("prok glob is 6", progam.GetOutputText());
         }
 
@@ -28,7 +28,7 @@ namespace test
         {
             var progam = new MyProgram();
             progam.LoadText("glob is I\r\nprok is V\r\nhow much is glob prok ?");
-            progam.Run("glob is I\r\nprok is V\r\nhow much is glob prok ?");
+            progam.Run();
             Assert.Equal("glob prok is 4", progam.GetOutputText());
         }
 
@@ -37,7 +37,7 @@ namespace test
         {
             var progam = new MyProgram();
             progam.LoadText("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\nhow much is pish tegj glob glob ?");
-            progam.Run("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\nhow much is pish tegj glob glob ?");
+            progam.Run();
             Assert.Equal("pish tegj glob glob is 42", progam.GetOutputText());
         }
 
@@ -46,7 +46,7 @@ namespace test
         {
             var progam = new MyProgram();
             progam.LoadText("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\nglob glob Silver is 34 Credits\r\nhow many Credits is glob prok Silver ?");
-            progam.Run("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\nglob glob Silver is 34 Credits\r\nhow many Credits is glob prok Silver ?");
+            progam.Run();
             Assert.Equal("glob prok Silver is 68 Credits", progam.GetOutputText());
         }
 
@@ -55,7 +55,7 @@ namespace test
         {
             var progam = new MyProgram();
             progam.LoadText("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\nglob prok Gold is 57800 Credits\r\nhow many Credits is glob prok Gold ?");
-            progam.Run("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\nglob prok Gold is 57800 Credits\r\nhow many Credits is glob prok Gold ?");
+            progam.Run();
             Assert.Equal("glob prok Gold is 57800 Credits", progam.GetOutputText());
         }
 
@@ -64,7 +64,7 @@ namespace test
         {
             var progam = new MyProgram();
             progam.LoadText("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\npish pish Iron is 3910 Credits\r\nhow many Credits is glob prok Iron ?");
-            progam.Run("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\npish pish Iron is 3910 Credits\r\nhow many Credits is glob prok Iron ?");
+            progam.Run();
             Assert.Equal("glob prok Iron is 782 Credits", progam.GetOutputText());
         }
 
@@ -73,7 +73,7 @@ namespace test
         {
             var progam = new MyProgram();
             progam.LoadText("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\nhow much wood could a woodchuck chuck if a woodchuck could chuck wood ?");
-            progam.Run("glob is I\r\nprok is V\r\npish is X\r\ntegj is L\r\nhow much wood could a woodchuck chuck if a woodchuck could chuck wood ?");
+            progam.Run();
             Assert.Equal("I have no idea what you are talking about", progam.GetOutputText());
         }
 
@@ -90,7 +90,7 @@ namespace test
                            "glob prok Gold is 57800 Credits\r\nglob prok Iron is 782 Credits\r\n" +
                            "I have no idea what you are talking about";
             progam.LoadText(input);
-            progam.Run(input);
+            progam.Run();
             Assert.Equal(expected, progam.GetOutputText());
         }
     }
